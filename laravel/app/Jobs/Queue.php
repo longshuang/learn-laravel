@@ -32,6 +32,7 @@ class Queue implements ShouldQueue
      */
     public function handle()
     {
+        Log::info($this->email);
         //发送邮件
         Mail::raw('laravel school,please get me reply,thanks!',function($message){
 
@@ -39,6 +40,5 @@ class Queue implements ShouldQueue
             $message->subject('laravel school,the url...');
             $message->to($this->email);
         });
-//        Log::info($this->email);
     }
 }
