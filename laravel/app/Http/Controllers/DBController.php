@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Student;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -243,5 +244,32 @@ class DBController extends Controller
 //        $student->save();
     }
 
+    //Eloquent 访问器使用
+    public function Evisit(){
+
+        $student = Student::where('id',3)->get();
+        //print_r($student[0]->name);
+
+        $name = $student[0]->name;
+        print_r($name);
+    }
+
+    //Eloquent 修改器
+    public function Emodifier(){
+
+        $student = new Student();
+        $student->name = 'tiantian';
+        $student->age = 20;
+        $student->sex = 1;
+        $student->save();
+
+    }
+
+    //Eloquent 属性转换
+    public function EchangeAttr(){
+
+        $student = Student::find(1);
+        print_r(@$student->yutu);
+    }
 
 }

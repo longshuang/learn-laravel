@@ -72,3 +72,10 @@ Route::get('/Eupdate',['as'=>'Equery','uses'=>'DBController@Eupdate']);
 Route::get('/Edelete',['as'=>'Equery','uses'=>'DBController@Edelete']);
 //数据库增删改查之EloquentORM使用之新增
 Route::get('/Einsert',['as'=>'Equery','uses'=>'DBController@Einsert']);
+
+//数据库操作之Eloquent之访问器使用
+Route::get('/Evisit',['as'=>'Evisit','uses'=>'DBController@Evisit']);
+//数据库操作之Eloquent之修改器使用
+Route::get('/Emodifier',['as'=>'Emodifier','uses'=>'DBController@Emodifier']);
+//数据库操作之Eloquent之属性转换
+Route::get('/EchangeAttr',['as'=>'EchangeAttr','uses'=>'DBController@EchangeAttr']);

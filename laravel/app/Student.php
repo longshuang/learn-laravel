@@ -17,6 +17,25 @@ class Student extends Model
     public $timestamps = false;
 
     //指定可以赋值的字段(用于create)
-    protected $fillable = ['name','age','sex'];
+    protected $fillable = ['name', 'age', 'sex'];
+
+    //属性转换
+    protected $casts = [
+        //'字段'=>'最终转换的属性'
+        'yutu'=>'array'
+    ];
+
+    //自定义访问器(用于从数据库读出数据的操作)
+    public function getNameAttribute($value)
+    {
+        return ucfirst($value);
+    }
+
+    //自定义修改器(用于写入数据库的操作)
+    public function setNameAttribute($value)
+    {
+        $this->attributes['name'] = ucfirst($value);
+    }
+
 
 }
