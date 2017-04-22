@@ -22,7 +22,7 @@ class Student extends Model
     //属性转换
     protected $casts = [
         //'字段'=>'最终转换的属性'
-        'yutu'=>'array'
+        'yutu' => 'array'
     ];
 
     //自定义访问器(用于从数据库读出数据的操作)
@@ -37,5 +37,18 @@ class Student extends Model
         $this->attributes['name'] = ucfirst($value);
     }
 
+
+    //与phone模型一对一的关系
+//    public function phone()
+//    {
+//        //第一个参数是所关联的模型[,第二个是所关联模型的外键(默认为表名_id,即phone_id)[,第三个参数是Student的主键(默认主键为id)]]
+//        return $this->hasOne('App\Phone', 'stu_id');
+//    }
+
+    //与Role模型多对多关系
+    public function roles()
+    {
+        return $this->belongsToMany('App\Role', 'student_roles', 'stu_id', 'role_id');
+    }
 
 }

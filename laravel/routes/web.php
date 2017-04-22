@@ -11,6 +11,7 @@
 |
 */
 
+
 Route::get('/', function () {
     return view('welcome');
 });
@@ -79,3 +80,23 @@ Route::get('/Evisit',['as'=>'Evisit','uses'=>'DBController@Evisit']);
 Route::get('/Emodifier',['as'=>'Emodifier','uses'=>'DBController@Emodifier']);
 //数据库操作之Eloquent之属性转换
 Route::get('/EchangeAttr',['as'=>'EchangeAttr','uses'=>'DBController@EchangeAttr']);
+
+//数据库操作之Eloquent之关联关系之一对一
+Route::get('/EhasOne',['as'=>'EhasOne','uses'=>'EloController@EhasOne']);
+//数据库操作之Eloquent之关联关系之相对关联(即一对一)
+Route::get('/Erelative',['as'=>'Erelative','uses'=>'EloController@Erelative']);
+
+//数据库操作之Eloquent之关联关系之一对多
+Route::get('/EhasMany',['as'=>'EhasMany','uses'=>'EloController@EhasMany']);
+
+//数据库操作之Eloquent之关联关系之即多对多
+Route::get('/EManyToMany',['as'=>'EManyToMany','uses'=>'EloController@EManyToMany']);
+
+//数据库操作之Eloquent之关联关系之远层一对多
+Route::get('/EmultihasOne',['as'=>'EmultihasOne','uses'=>'EloController@EmultihasOne']);
+
+//数据库操作之Eloquent之关联关系之单关联多态
+Route::get('/Esinglemorph',['as'=>'Esinglemorph','uses'=>'EloController@Esinglemorph']);
+
+//渴求式加载
+Route::get('/Edesire',['as'=>'Edesire','uses'=>'EloController@Edesire']);
