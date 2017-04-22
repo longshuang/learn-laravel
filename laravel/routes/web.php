@@ -100,3 +100,9 @@ Route::get('/Esinglemorph',['as'=>'Esinglemorph','uses'=>'EloController@Esinglem
 
 //渴求式加载
 Route::get('/Edesire',['as'=>'Edesire','uses'=>'EloController@Edesire']);
+
+//数据库操作之Eloquent之关联关系之删除
+Route::get('/ER_delete',['as'=>'ER_delete','uses'=>'EloController@ER_delete']);
+//数据库操作之Eloquent之关联关系之删更新
+Route::get('/ER_update',['as'=>'ER_update','uses'=>'EloController@ER_update']);
+

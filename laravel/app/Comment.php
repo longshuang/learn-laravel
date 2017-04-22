@@ -14,6 +14,8 @@ class Comment extends Model
     protected $primaryKey = 'id';
     //定义属性白名单
     protected $fillable = ['m_id', 'c_content', 'create_at', 'commentable_id', 'commentable_type'];
+    //定义时间属性是否维护
+    public $timestamps = false;
 
     //单关联多态
     public function commentable()

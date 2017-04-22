@@ -55,10 +55,11 @@ class EloController extends Controller
 
 
     //Student与Role 多对多
-    public function EManyToMany(){
+    public function EManyToMany()
+    {
 
         $student_role = Student::find(1)->roles()->get();
-        foreach($student_role as $value){
+        foreach ($student_role as $value) {
 
             dd($value->role_name);
         }
@@ -71,7 +72,8 @@ class EloController extends Controller
      * student:id-intger,country_id等等
      * message:id-intger,user_id-intger
      */
-    public function EmultihasOne(){
+    public function EmultihasOne()
+    {
 
         $info = Country::find(1)->Phone()->get();
         dd($info);
@@ -84,7 +86,8 @@ class EloController extends Controller
      * vedio:id-intger,v_url-varchar(40)
      * comment:id-intger,commentable_id-intger(message或vedio的id),commentable_type-varchar(10)(message或vedio)
      */
-    public function Esinglemorph(){
+    public function Esinglemorph()
+    {
 
         //注意comment_type的值应该是App\Video或者App\Message
         $info = Vedio::find(2)->comments()->get();
@@ -96,12 +99,13 @@ class EloController extends Controller
      * 渴求式加载:Eloquent 还可以在查询父级模型的同时”渴求式加载“关联关系。渴求式加载缓解了N+1查询问题，要阐明N+1查询问题
      * 例如:获取说说的评论,如果一条说说有20条评论,懒惰式加载(1条说说+20条评论=21次加载);渴求式加载(1条说说+一次性获取所有评论=2次加载)
      */
-    public function Edesire(){
+    public function Edesire()
+    {
 
         //DB::connection()->enableQueryLog();
 
         //渴求式加载(渴求式加载,一般需要些逆向关联关系(即belongsTo()))
-        $comment = Comment::where('m_id',1)->with('message')->get();
+        $comment = Comment::where('m_id', 1)->with('message')->get();
         //渴求式加载多个关联关系
         //$comment = Comment::where('m_id',1)->with('message','student')->get();
         //嵌套的渴求式加载
@@ -117,10 +121,26 @@ class EloController extends Controller
 
         $log = DB::getQueryLog();
         //dd($log);
-        foreach($comment as $value){
-            echo $value->c_content.'<br />';
+        foreach ($comment as $value) {
+            echo $value->c_content . '<br />';
         }
     }
 
+    //Eloquent 关联模型操作 : delete
+    public function ER_delete()
+    {
+        //注意,该处不会删除说说
+        $num = Message::find(1)->comment()->delete();
+        dd($num);
 
+    }
+
+    //Eloquent 关联模型操作 : update
+    public function ER_update()
+    {
+        $num = Message::find(1)->comment()->update(['c_content' => 'hello']);
+        dd($num);
+    }
+
+    
 }
