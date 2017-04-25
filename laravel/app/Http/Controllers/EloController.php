@@ -142,5 +142,4 @@ class EloController extends Controller
         dd($num);
     }
 
-    
 }

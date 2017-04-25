@@ -33,8 +33,9 @@ Route::get('/home', 'HomeController@index');
 //文件上传
 Route::any('/upload',['as'=>'upload','uses'=>'UploadController@upload']);
 
-//发送邮件
+//发送邮件(laravel5.4)
 Route::any('/sendMail',['as'=>'sendMail','uses'=>'MailController@sendMail']);
+Route::any('/sendMail5',['as'=>'sendMail5','uses'=>'AdminController@RegAdmin']);
 
 //设置缓存(file)
 Route::get('/setCache/value/{value}',['as'=>'fileCache','uses'=>'CacheController@setCache']);
