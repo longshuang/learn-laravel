@@ -124,6 +124,8 @@ return [
 
     'log_level' => env('APP_LOG_LEVEL', 'debug'),
 
+    'log_max_files' => env('LOG_MAX_FILES',30),
+
     /*
     |--------------------------------------------------------------------------
     | Autoloaded Service Providers
@@ -176,6 +178,11 @@ return [
         // App\Providers\BroadcastServiceProvider::class,
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
+
+        //OSS扩展服务者
+        App\Providers\OssServiceProvider::class,
+        //极光推送服务者
+        App\Providers\JpushServiceProvider::class,
 
     ],
 

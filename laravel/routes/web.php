@@ -107,3 +107,11 @@ Route::get('/ER_delete',['as'=>'ER_delete','uses'=>'EloController@ER_delete']);
 //数据库操作之Eloquent之关联关系之删更新
 Route::get('/ER_update',['as'=>'ER_update','uses'=>'EloController@ER_update']);
 
+
+//极光推送
+Route::get('/Jpush',['as'=>'Jpush','uses'=>'JpushController@Jpush']);
+
+//自定义扩展库
+Route::get('/tools',['as'=>'tools','uses'=>'ToolController@tools']);
+Route::get('/mytools',['as'=>'mytools','uses'=>'ToolController@mytools']);
+
